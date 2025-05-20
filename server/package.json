@@ -1,0 +1,24 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "Mental health journal and tracking app for Project 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeraldwhitley/Project3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeraldwhitley/Project3/issues"
+  },
+  "homepage": "https://github.com/jeraldwhitley/Project3#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "validator": "^13.15.0"
+  }
+}
