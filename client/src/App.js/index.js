@@ -1,16 +1,17 @@
-import { useState } from 'react';
-import MoodInput from '../components/MoodInput';
 
-export default function Home() {
-  const [mood, setMood] = useState(null);
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import ApolloProvider from './ApolloProvider';
+import './index.css';
 
-  return (
-    <div>
-      <h1>Welcome, User</h1>
-      <MoodInput mood={mood} setMood={setMood} />
-      <button onClick={() => alert(`Mood selected: ${mood}`)}>
-        Add Journal Entry
-      </button>
-    </div>
-  );
-}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <ApolloProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ApolloProvider>
+);
+
