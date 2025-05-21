@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
-import NewEntry from './pages/NewEntry';
+// import NewEntry from './pages/NewEntry';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
     <>
-      <div>
+      {/* <div>
         <h1>Welcome, User!</h1>
-      </div>
+      </div> */}
       <Router>
       <Routes>
-        <Route path="/" element={<NewEntry />} />
+        <Route path="/" element={<SignUp />} />
+        {/* <Route path="/" element={<NewEntry />} /> */}
       </Routes>
       </Router>
     </>
