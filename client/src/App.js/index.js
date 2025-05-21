@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import './index.css'; // optional: for global styles
+import ApolloProvider from './ApolloProvider';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <ApolloProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ApolloProvider>
 );
