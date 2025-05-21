@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import MoodInput from '../components/MoodInput';
+import MoodChart from '../components/MoodChart';
 
-export default function Home() {
-  const [mood, setMood] = useState(null);
+export default function NewEntry() {
+  const [mood, setMood] = useState<number | null>(null);
 
   return (
     <div>
-      <h1>Welcome, User</h1>
+      <div className= "new-entry">
+      <h1>How are you feeling today?</h1>
       <MoodInput mood={mood} setMood={setMood} />
       <button onClick={() => alert(`Mood selected: ${mood}`)}>
         Add Journal Entry
       </button>
+      <MoodChart />
+      </div>
     </div>
   );
 }

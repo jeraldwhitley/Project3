@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+.new-entry{
+  background: white;
+  border-radius: 10%;
+  margin: 20px;
+  padding: 20px;
+
+}
+
+.mood-input{
+  display: flex;
+  gap: 0.5rem; /* or 1rem, etc. */
+  flex-wrap: wrap; /* optional: wrap to new line if too many */
+  justify-content: center; /* optional: center the buttons */
+  padding-bottom: 10px;
+}
+
+.rating-words{
+  display: flex;
+  color: '#888';
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-box{
+  padding: 20px;
+}
+
