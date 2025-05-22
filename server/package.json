@@ -2,13 +2,11 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "Mental health journal and tracking app for Project 3",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-"scripts": {
     "start": "node server.js",
     "install": "npm i"
-}
   },
   "repository": {
     "type": "git",
@@ -22,9 +20,16 @@
   },
   "homepage": "https://github.com/jeraldwhitley/Project3#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.1.0",
+    "graphql": "^16.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.0",
     "validator": "^13.15.0"
   },
-  "devDependencies": {},
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "nodemon": "^3.1.10"
+  }
 }
