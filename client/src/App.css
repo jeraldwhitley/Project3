@@ -48,9 +48,28 @@
 }
 
 #loginOrSignUp {
-  border: 1px solid red;
   width: 100%;
   height: 100vh;
+}
+
+#loginOrSignUp > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loginOrSignUp > div > div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px 20px;
+  width: 300px;
+  margin: 30px;
+}
+
+#loginOrSignUp > div > div > label, #loginOrSignUp > div > div > button{
+  margin-top: 10px;
 }
 
 .mood-input{
