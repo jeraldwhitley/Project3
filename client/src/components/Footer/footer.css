@@ -1,0 +1,25 @@
+.footer{    
+    color:rgb(210, 181, 181);
+    -webkit-text-stroke: .5px rgb(63, 59, 59);
+    -webkit-text-fill-color: rgb(210, 181, 181);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+   
+    box-shadow: 
+        0 0 10px rgba(150, 97, 97, 0.13), 
+        inset 0 0 10px rgba(0, 0, 0, 0.12); 
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;    
+}
+
+.social-links a {
+    font-size: 2em;
+    color: inherit;
+}
+
