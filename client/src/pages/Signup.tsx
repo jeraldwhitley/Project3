@@ -5,7 +5,7 @@ import { ADD_USER } from '../utils/mutations';
 const SignUp: any = () => {
     const [ userData, setUserData ] = useState({});
 
-    const [addUser, { error }] = useMutation(ADD_USER);
+    // const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { id, value } = event.target;

@@ -2,7 +2,7 @@
   "name": "project-3",
   "version": "1.0.0",
   "description": "Mental health journal and tracking app for Project 3",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "start:dev": "concurrently \"cd server && npm run start\" \"wait-on tcp:3001 && cd client && npm run dev\"",
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/jeraldwhitley/Project3#readme",
   "dependencies": {
+    "apollo-server-express": "^3.13.0",
     "dotenv": "^16.5.0"
   },
   "devDependencies": {
