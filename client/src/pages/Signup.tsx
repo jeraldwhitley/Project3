@@ -5,11 +5,18 @@ import { ADD_USER } from '../utils/mutations';
 const SignUp: any = () => {
     const [ userData, setUserData ] = useState({});
 
-    // const [addUser, { error }] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
+
+    console.log('GraphQL: ', error)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             const { id, value } = event.target;
-            setUserData({ ...userData, [id]:value });
+            const key = id.split('_')[0];
+
+            setUserData({ ...userData, [key]:value });
+
+            console.log(userData);
+            
     };
 
     const handleSubmit = async () => {
@@ -31,7 +38,7 @@ const SignUp: any = () => {
         <h2>Please <a href="#email_login">Login</a> or <a href="#username_signUp">Sign Up</a></h2>
 
         <div>
-            <div>
+            <div id='loginDiv'>
                 <h2>Login</h2>
                 <label htmlFor="email_login">email</label>
                 <input onChange={handleChange} id="email_login" placeholder="test@test.com" />
@@ -39,7 +46,7 @@ const SignUp: any = () => {
                 <input onChange={handleChange} id="password_login" type="password" placeholder="*******" />
                 <button onClick={handleSubmit}>submit</button>
             </div>
-            <div>
+            <div id='signUpDiv'>
                 <h2>Sign Up</h2>
                 <label htmlFor="username_signUp">username</label>
                 <input onChange={handleChange} id="username_signUp" placeholder="Noel" />
