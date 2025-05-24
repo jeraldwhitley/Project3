@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/jeraldwhitley/Project3#readme",
   "dependencies": {
+    "@apollo/server": "^4.12.1",
+    "@as-integrations/express5": "^1.0.0",
     "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",
