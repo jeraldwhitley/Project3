@@ -2,9 +2,18 @@
   "name": "project-3",
   "version": "1.0.0",
   "description": "Mental health journal and tracking app for Project 3",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "start:dev": "concurrently \"cd server && npm run start\" \"wait-on tcp:3001 && cd client && npm run dev\"",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client:build": "cd client && npm run build",
+    "client:dev": "cd client && npm run dev && node seeds/index.js",
+    "seed":  "cd server && npm run seed",
+    "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
+    "render-build": "npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,11 +29,11 @@
   "homepage": "https://github.com/jeraldwhitley/Project3#readme",
   "dependencies": {
     "apollo-server-express": "^3.13.0",
-    "bcrypt": "^6.0.0",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "graphql": "^16.11.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.15.0"
+    "mongoose": "^8.15.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "wait-on": "^8.0.3"
   }
 }
