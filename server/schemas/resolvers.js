@@ -1,9 +1,9 @@
 const db = require("../config/connection.js");
 
 const resolvers = {
-  Record: {
-    id: (parent) => parent.id ?? parent._id,
-  },
+  // Record: {
+  //   id: (parent) => parent.id ?? parent._id,
+  // },
   Query: {
     async me(_, { id }) {
       let collection = await db.collection("User");
