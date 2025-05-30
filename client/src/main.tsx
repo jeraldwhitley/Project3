@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 
 import App from './App.jsx'
-import SignUp from './pages/Signup';
-import Journal from './pages/Journal';
+import SignUp from './pages/Signup/index.js';
+import Journal from './pages/Journal/index.js';
 import NewEntry from './pages/NewEntry';
 import Login from './pages/Login/index.js';
 
