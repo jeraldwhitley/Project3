@@ -1,13 +1,9 @@
 const db = require("../config/connection.js");
 
-<<<<<<< HEAD
-resolvers = {
-=======
 const resolvers = {
   Record: {
     id: (parent) => parent.id ?? parent._id,
   },
->>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
   Query: {
     async me(_, { id }) {
       let collection = await db.collection("User");

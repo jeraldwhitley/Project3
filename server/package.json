@@ -6,12 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-<<<<<<< HEAD
     "install": "npm i",
     "seed": "node seeds/index.js"
-=======
-    "install": "npm i"
->>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
   },
   "repository": {
     "type": "git",
