@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 import './App.css'
@@ -49,27 +48,6 @@ function App() {
    </>
 
      
-=======
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './App.css'
-// import NewEntry from './pages/NewEntry';
-import SignUp from './pages/SignUp';
-
-function App() {
-  return (
-    <>
-      {/* <div>
-        <h1>Welcome, User!</h1>
-      </div> */}
-      <Router>
-      <Routes>
-        <Route path="/" element={<SignUp />} />
-        {/* <Route path="/" element={<NewEntry />} /> */}
-      </Routes>
-      </Router>
-    </>
->>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
   )
 }
 
