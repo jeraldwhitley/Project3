@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/jeraldwhitley/Project3#readme",
   "dependencies": {
-    "apollo-server-express": "^3.13.0",
     "dotenv": "^16.5.0",
     "mongoose": "^8.15.1"
   },
