@@ -16,4 +16,5 @@ const journalEntrySchema = new Schema({
   },
 });
 
-module.exports = model('JournalEntry', journalEntrySchema);
+JournalEntry = model('JournalEntry', journalEntrySchema);
+module.exports = JournalEntry;

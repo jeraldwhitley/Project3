@@ -43,4 +43,5 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-module.exports = model('User', userSchema);
+User = model('User', userSchema);
+module.exports = User;

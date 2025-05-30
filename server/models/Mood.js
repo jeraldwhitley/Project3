@@ -15,4 +15,5 @@ const moodSchema = new Schema({
   },
 });
 
-module.exports = model('Mood', moodSchema);
+Mood = model('Mood', moodSchema);
+module.exports = Mood;
