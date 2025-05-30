@@ -1,47 +1,51 @@
-const { User, JournalEntry, Mood } = require('../models');
-const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth');
+const db = require("../config/connection.js");
 
+<<<<<<< HEAD
 resolvers = {
+=======
+const resolvers = {
+  Record: {
+    id: (parent) => parent.id ?? parent._id,
+  },
+>>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
   Query: {
-    me: async (parent, args, context) => {
-      if (!context.user) throw new AuthenticationError('Not logged in');
-      return User.findById(context.user._id).populate('journalEntries').populate('moods');
+    async me(_, { id }) {
+      let collection = await db.collection("User");
+      let query = { _id: new ObjectId(id) };
+
+      return await collection.findOne(query).populate('JournalEntries').populate('Moods');
     },
-    journalEntries: async (parent, args, context) => {
-      if (!context.user) throw new AuthenticationError('Not logged in');
-      return JournalEntry.find({ user: context.user._id });
+    async journalEntries(_, { id }) {
+      let collection = await db.collection("JournalEntries");
+      let query = { user: new ObjectId(id) };
+
+      return await collection.find(query).toArray();
     },
-    moods: async (parent, args, context) => {
-      if (!context.user) throw new AuthenticationError('Not logged in');
-      return Mood.find({ user: context.user._id });
+    async moods(_, { id }) {
+      let collection = await db.collection("Mood");
+      let query = { user: new ObjectId(id) };
+
+      return await collection.find(query).toArray();
     },
   },
   Mutation: {
-    login: async (_, { email, password }) => {
-      const user = await User.findOne({ email });
-      if (!user || !(await user.isCorrectPassword(password))) {
-        throw new AuthenticationError('Incorrect credentials');
+    async addUser(_, args, context) {
+      let collection = await db.collection("User");
+      const user = await collection.insertOne(args);
+      if (user.acknowledged){
+          console.log('Created New User: ',{ ...args, id: user.insertedId })
+          return { ...args, id: user.insertedId };
       }
-      const token = signToken(user);
-      return { token, user };
+      return null;
     },
-    addUser: async (_, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-      return { token, user };
-    },
-    addMood: async (_, { value }, context) => {
-      if (!context.user) throw new AuthenticationError('Login required');
-      const mood = await Mood.create({ value, user: context.user._id });
-      await User.findByIdAndUpdate(context.user._id, { $push: { moods: mood._id } });
-      return mood;
-    },
-    addJournalEntry: async (_, { text, mood }, context) => {
-      if (!context.user) throw new AuthenticationError('Login required');
-      const entry = await JournalEntry.create({ text, mood, user: context.user._id });
-      await User.findByIdAndUpdate(context.user._id, { $push: { journalEntries: entry._id } });
-      return entry;
+    async addMood(_, { value }, { id }) {
+      let collection = await db.collection("Mood");
+      const mood = await collection.insertOne({ value, user: id });
+      if (mood.acknowledged){
+          console.log('Created New Mood: ',mood)
+          return mood;
+      }
+      return null;
     },
   },
 };
