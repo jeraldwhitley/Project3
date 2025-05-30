@@ -4,23 +4,14 @@
   "description": "Mental health journal and tracking app for Project 3",
   "main": "server/server.js",
   "scripts": {
-<<<<<<< HEAD
     "start": "node server/server.js",
-=======
-    "start": "node index.js",
->>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
     "start:dev": "concurrently \"cd server && npm run start\" \"wait-on tcp:3001 && cd client && npm run dev\"",
     "server": "cd server && npm start",
     "server:dev": "cd server && npm run dev",
     "install": "cd server && npm i && cd ../client && npm i",
     "client:build": "cd client && npm run build",
-<<<<<<< HEAD
     "client:dev": "cd client && npm run dev && node seeds/index.js",
     "seed":  "cd server && npm run seed",
-=======
-    "client:dev": "cd client && npm run dev",
-    "seed": "node seeds/index.js",
->>>>>>> a2f4b6865dc58f55e397ac32254705c7960cc54c
     "build": "concurrently \"cd server && npm run build\" \"cd client && npm run build\"",
     "render-build": "npm install && npm run build"
   },
