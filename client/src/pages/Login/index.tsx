@@ -2,8 +2,8 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import { useNavigate } from 'react-router-dom';
 
+// Define the shape of the login response
 interface LoginResponse {
   login: {
     token: string;
@@ -15,6 +15,7 @@ interface LoginResponse {
   };
 }
 
+// Define the shape of the form state
 interface FormState {
   email: string;
   password: string;
@@ -22,9 +23,8 @@ interface FormState {
 
 const Login: React.FC = () => {
   const [formState, setFormState] = useState<FormState>({ email: '', password: '' });
-  const [login, { error }] = useMutation<LoginResponse>(LOGIN);
 
-  const navigate = useNavigate(); // ✅ Define navigate before use
+  const [login, { error }] = useMutation<LoginResponse>(LOGIN);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,11 +41,8 @@ const Login: React.FC = () => {
         variables: { ...formState },
       });
 
-      if (data?.login?.token) {
+      if (data) {
         Auth.login(data.login.token);
-        navigate('/newentry'); // ✅ Redirect after login
-      } else {
-        console.error('Login failed: login or token is undefined', data);
       }
     } catch (err) {
       console.error('Login error:', err);

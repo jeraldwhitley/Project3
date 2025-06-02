@@ -8,7 +8,7 @@ export const GET_ME = gql`
       email
       journalEntries {
         _id
-        text
+        title
         content
         createdAt
       }
@@ -18,17 +18,6 @@ export const GET_ME = gql`
         description
         createdAt
       }
-    }
-  }
-`;
-
-export const GET_JOURNAL_ENTRIES = gql`
-  query GetJournalEntries {
-    journalEntries {
-      _id
-      text
-      mood
-      createdAt
     }
   }
 `;
