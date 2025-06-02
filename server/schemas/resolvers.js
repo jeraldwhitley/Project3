@@ -1,28 +1,29 @@
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
 const db = require("../config/connection.js");
 
 const resolvers = {
-  // Query: {
-  //   async me(_, { id }) {
-  //     let collection = await db.collection("User");
-  //     let query = { _id: new ObjectId(id) };
-
-  //     return await collection.findOne(query).populate('JournalEntries').populate('Moods');
-  //   },
-  //   async journalEntries(_, { id }) {
-  //     let collection = await db.collection("JournalEntries");
-  //     let query = { user: new ObjectId(id) };
-
-  //     return await collection.find(query).toArray();
-  //   },
-  //   async moods(_, { id }) {
-  //     let collection = await db.collection("Mood");
-  //     let query = { user: new ObjectId(id) };
-
-  //     return await collection.find(query).toArray();
-  //   },
+  // Record: {
+  //   id: (parent) => parent.id ?? parent._id,
   // },
+  Query: {
+    async me(_, { id }) {
+      let collection = await db.collection("User");
+      let query = { _id: new ObjectId(id) };
+
+      return await collection.findOne(query).populate('JournalEntries').populate('Moods');
+    },
+    async journalEntries(_, { id }) {
+      let collection = await db.collection("JournalEntries");
+      let query = { user: new ObjectId(id) };
+
+      return await collection.find(query).toArray();
+    },
+    async moods(_, { id }) {
+      let collection = await db.collection("Mood");
+      let query = { user: new ObjectId(id) };
+
+      return await collection.find(query).toArray();
+    },
+  },
   Mutation: {
     async addUser(_, args, context) {
       let collection = await db.collection("User");

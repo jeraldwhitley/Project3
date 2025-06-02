@@ -5,7 +5,7 @@ type MoodInputProps = {
 };
 
 export default function MoodInput({ mood, setMood }: MoodInputProps) {
-  const moods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const moods = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
   return (
     <div >

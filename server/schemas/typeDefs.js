@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+
 
 typeDefs = `
   type User {
@@ -13,7 +13,7 @@ typeDefs = `
     _id: ID!
     text: String!
     createdAt: String
-    mood: Int
+    mood: String
   }
 
   type Mood {
@@ -36,8 +36,8 @@ typeDefs = `
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addMood(value: Int!): Mood
-    addJournalEntry(text: String!, mood: Int!): JournalEntry
+    addMood(value: String!): Mood
+    addJournalEntry(text: String!, mood: String): JournalEntry
   }
 `;
 
