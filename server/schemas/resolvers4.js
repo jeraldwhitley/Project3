@@ -1,6 +1,9 @@
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 const { User, JournalEntry, Mood } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+
 
 module.exports = {
   Query: {
@@ -19,13 +22,21 @@ module.exports = {
   },
   Mutation: {
     login: async (_, { email, password }) => {
-      const user = await User.findOne({ email });
-      if (!user || !(await user.isCorrectPassword(password))) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-      const token = signToken(user);
-      return { token, user };
-    },
+  const user = await User.findOne({ email });
+
+  if (!user || !(await user.isCorrectPassword(password))) {
+    throw new AuthenticationError('Incorrect credentials');
+  }
+
+  const token = signToken(user); // <-- Now token is created
+
+  console.log("=== DEBUG ===");
+  console.log("User:", user);
+  console.log("Token:", token); // <-- Safe to log here
+  console.log("==============");
+
+  return { token, user };
+},
     addUser: async (_, args) => {
       const user = await User.create(args);
       const token = signToken(user);
